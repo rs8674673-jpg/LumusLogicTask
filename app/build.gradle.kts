@@ -23,7 +23,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // For API key from local.properties
-        buildConfigField("String", "NEWS_API_KEY", "\"${properties["apiKey"] ?: ""}\"")
+        buildConfigField("String", "NEWS_API_KEY", "\"${"5930ab70-a7ee-4ccf-bf6d-1281ec435b90"}\"")
     }
 
     buildTypes {
