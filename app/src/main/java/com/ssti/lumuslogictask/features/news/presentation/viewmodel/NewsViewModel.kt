@@ -24,17 +24,6 @@ import javax.inject.Inject
 class NewsViewModel @Inject constructor(
     private val getArticlesUseCase: GetArticlesUseCase
 ) : ViewModel() {
-
     private val _articles: Flow<PagingData<Article>> = getArticlesUseCase().cachedIn(viewModelScope)
     val articles: Flow<PagingData<Article>> get() = _articles
-
-    // For initial load states
-    private val _uiState = MutableStateFlow<Result<List<Article>>>(Result.Loading)
-    val uiState: StateFlow<Result<List<Article>>> = _uiState.asStateFlow()
-
-    init {
-        viewModelScope.launch {
-            // Optional: Handle initial states if needed beyond Paging
-        }
-    }
 }

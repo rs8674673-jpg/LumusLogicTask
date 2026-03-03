@@ -1,5 +1,6 @@
 package com.ssti.lumuslogictask.core.data.remote
 
+import com.ssti.lumuslogictask.core.common.Constants
 import com.ssti.lumuslogictask.core.domain.model.ArticleResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,12 +11,11 @@ import retrofit2.http.Query
  * Desc: Retrofit API service for fetching news headlines.
  */
 interface NewsApiService {
-    @GET("top-headlines")
+    @GET(Constants.TOP_HEADLINES_ENDPOINT)
     suspend fun getTopHeadlines(
-        @Query("country") country: String = "us",
+        @Query("country") country: String = Constants.DEFAULT_COUNTRY,
         @Query("page") page: Int,
-        @Query("pageSize") pageSize: Int,
+        @Query("pageSize") pageSize: Int = Constants.PAGE_SIZE,
         @Query("apiKey") apiKey: String
     ): ArticleResponse
 }
-

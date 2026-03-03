@@ -6,6 +6,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
 import com.ssti.lumuslogictask.BuildConfig
+import com.ssti.lumuslogictask.core.common.Constants
 import com.ssti.lumuslogictask.core.domain.model.toDomain
 import com.ssti.lumuslogictask.core.data.local.ArticleDatabase
 import com.ssti.lumuslogictask.core.data.remote.NewsApiService
@@ -31,7 +32,10 @@ class ArticleRepositoryImpl @Inject constructor(
         val pagingSourceFactory = { database.articleDao().pagingSource() }
 
         return Pager(
-            config = PagingConfig(pageSize = PAGE_SIZE, enablePlaceholders = false),
+            config = PagingConfig(
+                pageSize = Constants.PAGE_SIZE, 
+                enablePlaceholders = false
+            ),
             remoteMediator = NewsRemoteMediator(
                 apiService = apiService,
                 database = database,
@@ -40,9 +44,4 @@ class ArticleRepositoryImpl @Inject constructor(
             pagingSourceFactory = pagingSourceFactory
         ).flow.map { pagingData -> pagingData.map { it.toDomain() } }
     }
-
-    companion object {
-        const val PAGE_SIZE = 20
-    }
 }
-

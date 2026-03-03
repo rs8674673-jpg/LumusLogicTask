@@ -4,9 +4,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.ssti.lumuslogictask.R
 import com.ssti.lumuslogictask.core.ui.components.EmptyScreen
 import com.ssti.lumuslogictask.core.ui.components.ErrorScreen
 import com.ssti.lumuslogictask.core.ui.components.LoadingScreen
@@ -23,9 +25,13 @@ fun NewsListScreen(viewModel: NewsViewModel = hiltViewModel()) {
     val lazyPagingItems = viewModel.articles.collectAsLazyPagingItems()
 
     when {
-        lazyPagingItems.loadState.refresh is LoadState.Loading -> LoadingScreen()
-        lazyPagingItems.loadState.refresh is LoadState.Error -> ErrorScreen("Error loading news")
-        lazyPagingItems.itemCount == 0 -> EmptyScreen("No news available")
+        lazyPagingItems.loadState.refresh is LoadState.Loading && lazyPagingItems.itemCount == 0 -> LoadingScreen()
+        lazyPagingItems.loadState.refresh is LoadState.Error && lazyPagingItems.itemCount == 0 -> {
+            ErrorScreen(stringResource(R.string.error_loading_news))
+        }
+        lazyPagingItems.itemCount == 0 -> {
+            EmptyScreen(stringResource(R.string.no_news_available))
+        }
         else -> {
             LazyColumn {
                 items(count = lazyPagingItems.itemCount) { index ->

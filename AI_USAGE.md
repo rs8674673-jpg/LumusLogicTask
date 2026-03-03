@@ -6,3 +6,4 @@ This project used AI (Grok + Cursor) for:
 - Not just copy-paste: Code was adapted for the specific package structure, with custom mappers, states handling, and Hilt integration.
 - Manual reviews ensured code quality, no direct copy without understanding.
 - Hilt setup was done total manually
+- In one sentence steps get with explanation & code snippet in grok and apply that code via cursor.
