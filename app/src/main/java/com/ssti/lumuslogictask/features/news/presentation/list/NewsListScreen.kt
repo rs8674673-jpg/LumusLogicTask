@@ -10,14 +10,16 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.ssti.lumuslogictask.core.ui.components.EmptyScreen
 import com.ssti.lumuslogictask.core.ui.components.ErrorScreen
 import com.ssti.lumuslogictask.core.ui.components.LoadingScreen
-import com.ssti.lumuslogictask.features.news.presentation.NewsViewModel
+import com.ssti.lumuslogictask.features.news.presentation.viewmodel.NewsViewModel
 import com.ssti.lumuslogictask.features.news.presentation.components.ArticleItem
 
+/**
+ * Author: Ravi Soni
+ * Date: Mar 3, 2026
+ * Desc: Composable screen displaying paged news article list.
+ */
 @Composable
-fun NewsListScreen(
-    viewModel: NewsViewModel = hiltViewModel(),
-    onArticleClick: (String) -> Unit
-) {
+fun NewsListScreen(viewModel: NewsViewModel = hiltViewModel()) {
     val lazyPagingItems = viewModel.articles.collectAsLazyPagingItems()
 
     when {
@@ -28,9 +30,7 @@ fun NewsListScreen(
             LazyColumn {
                 items(count = lazyPagingItems.itemCount) { index ->
                     val article = lazyPagingItems[index] ?: return@items
-                    ArticleItem(article = article) {
-                        onArticleClick(article.url)
-                    }
+                    ArticleItem(article = article)
                 }
                 if (lazyPagingItems.loadState.append is LoadState.Loading) {
                     item { LoadingScreen(Modifier.fillMaxWidth()) }

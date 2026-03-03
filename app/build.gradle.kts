@@ -24,6 +24,7 @@ android {
 
         // For API key from local.properties
         buildConfigField("String", "NEWS_API_KEY", "\"${"f167297641b84cefb380364430071331"}\"")
+        buildConfigField("String", "NEWS_BASE_URL", "\"https://newsapi.org/v2/\"")
     }
 
     buildTypes {

@@ -16,6 +16,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+/**
+ * Author: Ravi Soni
+ * Date: Mar 3, 2026
+ * Desc: Repository implementation for paged article flow with offline support.
+ */
 class ArticleRepositoryImpl @Inject constructor(
     private val apiService: NewsApiService,
     private val database: ArticleDatabase

@@ -11,6 +11,11 @@ import com.ssti.lumuslogictask.core.domain.model.toEntity
 import retrofit2.HttpException
 import java.io.IOException
 
+/**
+ * Author: Ravi Soni
+ * Date: Mar 3, 2026
+ * Desc: RemoteMediator for paging with network and local cache sync.
+ */
 @OptIn(ExperimentalPagingApi::class)
 class NewsRemoteMediator(
     private val apiService: NewsApiService,

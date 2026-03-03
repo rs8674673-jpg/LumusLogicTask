@@ -1,6 +1,5 @@
 package com.ssti.lumuslogictask.features.news.presentation.components
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,12 +12,16 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.ssti.lumuslogictask.core.domain.model.Article
 
+/**
+ * Author: Ravi Soni
+ * Date: Mar 3, 2026
+ * Desc: Composable list item for a single news article.
+ */
 @Composable
-fun ArticleItem(article: Article, onClick: () -> Unit) {
+fun ArticleItem(article: Article) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
             .padding(16.dp)
     ) {
         AsyncImage(

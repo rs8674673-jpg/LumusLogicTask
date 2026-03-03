@@ -6,6 +6,11 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+/**
+ * Author: Ravi Soni
+ * Date: Mar 3, 2026
+ * Desc: Room DAO for article CRUD and paging operations.
+ */
 @Dao
 interface ArticleDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)

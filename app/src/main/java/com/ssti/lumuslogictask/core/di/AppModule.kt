@@ -1,6 +1,7 @@
 package com.ssti.lumuslogictask.core.di
 
 import android.content.Context
+import com.ssti.lumuslogictask.BuildConfig
 import androidx.room.Room
 import com.ssti.lumuslogictask.core.data.local.ArticleDatabase
 import com.ssti.lumuslogictask.core.data.remote.NewsApiService
@@ -17,6 +18,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Author: Ravi Soni
+ * Date: Mar 3, 2026
+ * Desc: Hilt module providing Retrofit, Room, and repository dependencies.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
@@ -36,7 +42,7 @@ object AppModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://newsapi.org/v2/")
+            .baseUrl(BuildConfig.NEWS_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

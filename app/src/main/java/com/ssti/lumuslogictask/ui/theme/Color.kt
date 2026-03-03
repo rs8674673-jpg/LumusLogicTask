@@ -2,6 +2,11 @@ package com.ssti.lumuslogictask.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Author: Ravi Soni
+ * Date: Mar 3, 2026
+ * Desc: App color palette for light and dark themes.
+ */
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)

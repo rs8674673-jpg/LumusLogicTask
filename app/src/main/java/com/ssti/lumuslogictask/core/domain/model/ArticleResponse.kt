@@ -3,6 +3,11 @@ package com.ssti.lumuslogictask.core.domain.model
 import com.google.gson.annotations.SerializedName
 import com.ssti.lumuslogictask.core.data.local.ArticleEntity
 
+/**
+ * Author: Ravi Soni
+ * Date: Mar 3, 2026
+ * Desc: API response DTOs and entity/domain mappers.
+ */
 data class ArticleResponse(
     val status: String,
     val totalResults: Int,
