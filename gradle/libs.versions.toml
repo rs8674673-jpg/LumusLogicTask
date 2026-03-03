@@ -54,6 +54,7 @@ logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", ver
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttpVersion" }
 
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilVersion" }
+coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilVersion" }
 
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
@@ -66,4 +67,3 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp-lib = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlin-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-

@@ -1,13 +1,26 @@
 package com.ssti.lumuslogictask
 
 import android.app.Application
+import coil3.ImageLoader
+import coil3.PlatformContext
+import coil3.SingletonImageLoader
+import coil3.network.okhttp.OkHttpNetworkFetcherFactory
 import dagger.hilt.android.HiltAndroidApp
+import okhttp3.OkHttpClient
 
 /**
  * Author: Ravi Soni
  * Date: Mar 3, 2026
- * Desc: Application class with Hilt dependency injection.
+ * Desc: Application class with Hilt and Coil3 image loader configuration.
  */
 @HiltAndroidApp
-class MyApplication : Application()
+class MyApplication : Application(), SingletonImageLoader.Factory {
 
+    override fun newImageLoader(context: PlatformContext): ImageLoader {
+        return ImageLoader.Builder(context)
+            .components {
+                add(OkHttpNetworkFetcherFactory())
+            }
+            .build()
+    }
+}
